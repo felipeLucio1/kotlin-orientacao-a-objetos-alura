@@ -1,5 +1,7 @@
 package com.felipelucio.bytebank
 
 fun main() {
-    print("Bem vindo ao Bytebank")
+    println("Bem vindo ao Bytebank")
+    val titular = "Felipe"
+    println("Olá, $titular")
 }
