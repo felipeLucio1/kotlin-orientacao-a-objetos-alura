@@ -11,20 +11,25 @@ fun main() {
     println("numero da conta $numero")
     println("saldo $saldo")
 
-    if (saldo > 0.0) {
+//    testaCondicoes(saldo)
+}
+
+fun testaCondicoes(saldo: Double) {
+    var saldo1 = saldo
+    if (saldo1 > 0.0) {
         println("Conta positiva")
-    } else if (saldo == 0.0) {
+    } else if (saldo1 == 0.0) {
         println("Conta neutra")
     } else {
         println("Conta negativa")
     }
 
-    saldo -= 1000.0
+    saldo1 -= 1000.0
 
     // o when do kotlin tem a mesma sisgnificado do if {...} else if {...} ... else {...}
     when {
-       saldo > 0.0 -> println("Conta positiva")
-       saldo == 0.0 -> println("Conta neutra")
-       else -> println("Conta negativa")
+        saldo1 > 0.0 -> println("Conta positiva")
+        saldo1 == 0.0 -> println("Conta neutra")
+        else -> println("Conta negativa")
     }
 }
