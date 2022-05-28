@@ -2,15 +2,42 @@ package com.felipelucio.bytebank
 
 fun main() {
     println("Bem vindo ao Bytebank")
-    val titular = "Felipe"
-    val numero = 1234
-    var saldo = 0.0
-    saldo += 100.0
 
-    println("titular $titular")
-    println("numero da conta $numero")
-    println("saldo $saldo")
+    for (i in 1..5) {
+        val titular = "Felipe $i"
+        val numero = 1000+i
+        var saldo = i+10.0
 
+        println("titular $titular")
+        println("numero da conta $numero")
+        println("saldo $saldo")
+        println()
+    }
+
+    for (i in 5 downTo 1 step 2) {
+        val titular = "Felipe $i"
+        val numero = 1000+i
+        var saldo = i+10.0
+
+        println("titular $titular")
+        println("numero da conta $numero")
+        println("saldo $saldo")
+        println()
+    }
+
+    var i = 0
+    while (i < 5) {
+        val titular = "Felipe $i"
+        val numero = 1000+i
+        var saldo = i+10.0
+
+        println("titular $titular")
+        println("numero da conta $numero")
+        println("saldo $saldo")
+        println()
+        i++
+    }
+    
 //    testaCondicoes(saldo)
 }
 
