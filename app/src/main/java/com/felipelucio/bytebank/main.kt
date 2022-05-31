@@ -3,6 +3,9 @@ package com.felipelucio.bytebank
 fun main() {
     println("Bem vindo ao Bytebank")
 
+}
+
+fun testaLacos() {
     for (i in 1..5) {
         val titular = "Felipe $i"
         val numero = 1000+i
@@ -37,8 +40,6 @@ fun main() {
         println()
         i++
     }
-    
-//    testaCondicoes(saldo)
 }
 
 fun testaCondicoes(saldo: Double) {
