@@ -3,6 +3,29 @@ package com.felipelucio.bytebank
 fun main() {
     println("Bem vindo ao Bytebank")
 
+    val contaFelipe = Conta()
+    contaFelipe.titular = "Felipe"
+    contaFelipe.numero = 1000
+    contaFelipe.saldo = 100.0
+
+    println("titular ${contaFelipe.titular}")
+    println("numero ${contaFelipe.numero}")
+    println("saldo ${contaFelipe.saldo}")
+
+    val contaRay = Conta()
+    contaRay.titular = "Ray"
+    contaRay.numero = 1001
+    contaRay.saldo = 300.0
+
+    println("titular ${contaRay.titular}")
+    println("numero ${contaRay.numero}")
+    println("saldo ${contaRay.saldo}")
+}
+
+class Conta {
+    var titular = ""
+    var numero = 0
+    var saldo = 0.0
 }
 
 fun testaLacos() {
