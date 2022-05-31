@@ -20,7 +20,15 @@ fun main() {
     println("titular ${contaRay.titular}")
     println("numero ${contaRay.numero}")
     println("saldo ${contaRay.saldo}")
+}
 
+class Conta {
+    var titular = ""
+    var numero = 0
+    var saldo = 0.0
+}
+
+fun testaCopiaEReferencia() {
     println()
     println("----------Teste de copia e referencia----------")
 
@@ -37,12 +45,6 @@ fun main() {
 
     println("contaUm.titular ${contaUm.titular}")
     println("contaDois.titular ${contaDois.titular}")
-}
-
-class Conta {
-    var titular = ""
-    var numero = 0
-    var saldo = 0.0
 }
 
 fun testaLacos() {
