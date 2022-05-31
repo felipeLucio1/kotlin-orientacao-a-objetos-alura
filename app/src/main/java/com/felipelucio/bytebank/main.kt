@@ -20,6 +20,23 @@ fun main() {
     println("titular ${contaRay.titular}")
     println("numero ${contaRay.numero}")
     println("saldo ${contaRay.saldo}")
+
+    println()
+    println("----------Teste de copia e referencia----------")
+
+    val varX = 10
+    var varY = varX
+    println("varX $varX")
+    println("varY $varY")
+
+    val contaUm = Conta()
+    contaUm.titular = "Um"
+
+    val contaDois = contaUm
+    contaDois.titular = "Dois"
+
+    println("contaUm.titular ${contaUm.titular}")
+    println("contaDois.titular ${contaDois.titular}")
 }
 
 class Conta {
