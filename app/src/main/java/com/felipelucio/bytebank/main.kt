@@ -6,45 +6,45 @@ fun main() {
     val contaFelipe = Conta()
     contaFelipe.titular = "Felipe"
     contaFelipe.numero = 1000
-    contaFelipe.setSaldo(100.0)
+    contaFelipe.deposita(100.0)
 
     println("titular ${contaFelipe.titular}")
     println("numero ${contaFelipe.numero}")
-    println("saldo ${contaFelipe.getSaldo()}")
+    println("saldo ${contaFelipe.saldo}")
 
     val contaRay = Conta()
     contaRay.titular = "Ray"
     contaRay.numero = 1001
-    contaRay.setSaldo(300.0)
+    contaRay.deposita(300.0)
 
     println("titular ${contaRay.titular}")
     println("numero ${contaRay.numero}")
-    println("saldo ${contaRay.getSaldo()}")
+    println("saldo ${contaRay.saldo}")
 
     contaFelipe.deposita( 10.0)
     contaRay.deposita( 10.0)
 
-    println("saldo Felipe ${contaFelipe.getSaldo()}")
-    println("saldo Ray ${contaRay.getSaldo()}")
+    println("saldo Felipe ${contaFelipe.saldo}")
+    println("saldo Ray ${contaRay.saldo}")
 
     contaFelipe.saca( 10.0)
     contaRay.saca( 10.0)
 
-    println("saldo Felipe ${contaFelipe.getSaldo()}")
-    println("saldo Ray ${contaRay.getSaldo()}")
+    println("saldo Felipe ${contaFelipe.saldo}")
+    println("saldo Ray ${contaRay.saldo}")
 
     println("Saques maiores que o saldo")
 
     contaFelipe.saca( 1200.0)
     contaRay.saca( 320.0)
 
-    println("saldo Felipe ${contaFelipe.getSaldo()}")
-    println("saldo Ray ${contaRay.getSaldo()}")
+    println("saldo Felipe ${contaFelipe.saldo}")
+    println("saldo Ray ${contaRay.saldo}")
 
     println("Transfere da conta do Felipe para a Ray")
 
-    println("saldo Felipe ${contaFelipe.getSaldo()}")
-    println("saldo Ray ${contaRay.getSaldo()}")
+    println("saldo Felipe ${contaFelipe.saldo}")
+    println("saldo Ray ${contaRay.saldo}")
 
     if (contaFelipe.transfere(20.0, contaRay)) {
         println("Trnadferencia efetuada com sucesso!")
@@ -52,17 +52,20 @@ fun main() {
         println("Falha na transferencia!")
     }
 
-    println("saldo Felipe ${contaFelipe.getSaldo()}")
-    println("saldo Ray ${contaRay.getSaldo()}")
+    println("saldo Felipe ${contaFelipe.saldo}")
+    println("saldo Ray ${contaRay.saldo}")
 }
 
 class Conta {
     var titular = ""
     var numero = 0
-    private var saldo = 0.0
+    var saldo = 0.0
+        private set
 
     fun deposita(valor: Double) {
-        saldo += valor
+        if (valor > 0.0) {
+            saldo += valor
+        }
     }
 
     fun saca(valor: Double) {
@@ -79,15 +82,7 @@ class Conta {
         return false
     }
 
-    fun getSaldo(): Double {
-        return saldo
-    }
 
-    fun setSaldo(valor: Double) {
-        if (valor > 0) {
-            saldo += valor
-        }
-    }
 }
 
 fun testaCopiaEReferencia() {
