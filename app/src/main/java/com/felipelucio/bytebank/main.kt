@@ -21,8 +21,8 @@ fun main() {
     println("numero ${contaRay.numero}")
     println("saldo ${contaRay.saldo}")
 
-    deposita(contaFelipe, 10.0)
-    deposita(contaRay, 10.0)
+    contaFelipe.deposita( 10.0)
+    contaRay.deposita( 10.0)
 
     println("saldo Felipe ${contaFelipe.saldo}")
     println("saldo Ray ${contaRay.saldo}")
@@ -32,10 +32,10 @@ class Conta {
     var titular = ""
     var numero = 0
     var saldo = 0.0
-}
 
-fun deposita(conta: Conta, valor: Double) {
-    conta.saldo += valor
+    fun deposita(valor: Double) {
+        saldo += valor
+    }
 }
 
 fun testaCopiaEReferencia() {
