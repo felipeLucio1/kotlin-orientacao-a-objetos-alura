@@ -46,7 +46,11 @@ fun main() {
     println("saldo Felipe ${contaFelipe.getSaldo()}")
     println("saldo Ray ${contaRay.getSaldo()}")
 
-    contaFelipe.transfere(20.0, contaRay)
+    if (contaFelipe.transfere(20.0, contaRay)) {
+        println("Trnadferencia efetuada com sucesso!")
+    } else {
+        println("Falha na transferencia!")
+    }
 
     println("saldo Felipe ${contaFelipe.getSaldo()}")
     println("saldo Ray ${contaRay.getSaldo()}")
