@@ -3,14 +3,14 @@ package com.felipelucio.bytebank
 fun main() {
     println("Bem vindo ao Bytebank")
 
-    val contaFelipe = Conta("Felipe", 1000)
+    val contaFelipe = Conta(titular = "Felipe", numero = 1000)
     contaFelipe.deposita(100.0)
 
     println("titular ${contaFelipe.titular}")
     println("numero ${contaFelipe.numero}")
     println("saldo ${contaFelipe.saldo}")
 
-    val contaRay = Conta("Ray", 1001)
+    val contaRay = Conta(numero = 1001, titular = "Ray")
     contaRay.deposita(300.0)
 
     println("titular ${contaRay.titular}")
@@ -52,7 +52,7 @@ fun main() {
     println("saldo Ray ${contaRay.saldo}")
 }
 
-class Conta(var titular: String, var numero: Int) {
+class Conta(var titular: String, val numero: Int) {
     var saldo = 0.0
         private set
 
