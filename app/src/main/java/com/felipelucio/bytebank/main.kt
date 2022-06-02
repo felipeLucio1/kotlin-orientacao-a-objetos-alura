@@ -3,18 +3,14 @@ package com.felipelucio.bytebank
 fun main() {
     println("Bem vindo ao Bytebank")
 
-    val contaFelipe = Conta()
-    contaFelipe.titular = "Felipe"
-    contaFelipe.numero = 1000
+    val contaFelipe = Conta("Felipe", 1000)
     contaFelipe.deposita(100.0)
 
     println("titular ${contaFelipe.titular}")
     println("numero ${contaFelipe.numero}")
     println("saldo ${contaFelipe.saldo}")
 
-    val contaRay = Conta()
-    contaRay.titular = "Ray"
-    contaRay.numero = 1001
+    val contaRay = Conta("Ray", 1001)
     contaRay.deposita(300.0)
 
     println("titular ${contaRay.titular}")
@@ -56,9 +52,7 @@ fun main() {
     println("saldo Ray ${contaRay.saldo}")
 }
 
-class Conta {
-    var titular = ""
-    var numero = 0
+class Conta(var titular: String, var numero: Int) {
     var saldo = 0.0
         private set
 
@@ -94,8 +88,7 @@ fun testaCopiaEReferencia() {
     println("varX $varX")
     println("varY $varY")
 
-    val contaUm = Conta()
-    contaUm.titular = "Um"
+    val contaUm = Conta("Um", 1)
 
     val contaDois = contaUm
     contaDois.titular = "Dois"
