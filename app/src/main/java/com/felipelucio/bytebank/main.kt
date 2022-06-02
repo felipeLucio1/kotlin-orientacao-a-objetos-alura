@@ -6,36 +6,88 @@ fun main() {
     val contaFelipe = Conta()
     contaFelipe.titular = "Felipe"
     contaFelipe.numero = 1000
-    contaFelipe.saldo = 100.0
+    contaFelipe.setSaldo(100.0)
 
     println("titular ${contaFelipe.titular}")
     println("numero ${contaFelipe.numero}")
-    println("saldo ${contaFelipe.saldo}")
+    println("saldo ${contaFelipe.getSaldo()}")
 
     val contaRay = Conta()
     contaRay.titular = "Ray"
     contaRay.numero = 1001
-    contaRay.saldo = 300.0
+    contaRay.setSaldo(300.0)
 
     println("titular ${contaRay.titular}")
     println("numero ${contaRay.numero}")
-    println("saldo ${contaRay.saldo}")
+    println("saldo ${contaRay.getSaldo()}")
 
-    deposita(contaFelipe, 10.0)
-    deposita(contaRay, 10.0)
+    contaFelipe.deposita( 10.0)
+    contaRay.deposita( 10.0)
 
-    println("saldo Felipe ${contaFelipe.saldo}")
-    println("saldo Ray ${contaRay.saldo}")
+    println("saldo Felipe ${contaFelipe.getSaldo()}")
+    println("saldo Ray ${contaRay.getSaldo()}")
+
+    contaFelipe.saca( 10.0)
+    contaRay.saca( 10.0)
+
+    println("saldo Felipe ${contaFelipe.getSaldo()}")
+    println("saldo Ray ${contaRay.getSaldo()}")
+
+    println("Saques maiores que o saldo")
+
+    contaFelipe.saca( 1200.0)
+    contaRay.saca( 320.0)
+
+    println("saldo Felipe ${contaFelipe.getSaldo()}")
+    println("saldo Ray ${contaRay.getSaldo()}")
+
+    println("Transfere da conta do Felipe para a Ray")
+
+    println("saldo Felipe ${contaFelipe.getSaldo()}")
+    println("saldo Ray ${contaRay.getSaldo()}")
+
+    if (contaFelipe.transfere(20.0, contaRay)) {
+        println("Trnadferencia efetuada com sucesso!")
+    } else {
+        println("Falha na transferencia!")
+    }
+
+    println("saldo Felipe ${contaFelipe.getSaldo()}")
+    println("saldo Ray ${contaRay.getSaldo()}")
 }
 
 class Conta {
     var titular = ""
     var numero = 0
-    var saldo = 0.0
-}
+    private var saldo = 0.0
 
-fun deposita(conta: Conta, valor: Double) {
-    conta.saldo += valor
+    fun deposita(valor: Double) {
+        saldo += valor
+    }
+
+    fun saca(valor: Double) {
+        if (saldo >= valor) {
+            saldo -= valor
+        }
+    }
+
+    fun transfere(valor: Double, destino: Conta): Boolean {
+        if (saldo >= valor) {
+            saldo -= valor
+            destino.deposita(valor)
+        }
+        return false
+    }
+
+    fun getSaldo(): Double {
+        return saldo
+    }
+
+    fun setSaldo(valor: Double) {
+        if (valor > 0) {
+            saldo += valor
+        }
+    }
 }
 
 fun testaCopiaEReferencia() {
