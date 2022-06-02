@@ -26,6 +26,20 @@ fun main() {
 
     println("saldo Felipe ${contaFelipe.saldo}")
     println("saldo Ray ${contaRay.saldo}")
+
+    contaFelipe.saca( 10.0)
+    contaRay.saca( 10.0)
+
+    println("saldo Felipe ${contaFelipe.saldo}")
+    println("saldo Ray ${contaRay.saldo}")
+
+    println("Saques maiores que o saldo")
+
+    contaFelipe.saca( 1200.0)
+    contaRay.saca( 320.0)
+
+    println("saldo Felipe ${contaFelipe.saldo}")
+    println("saldo Ray ${contaRay.saldo}")
 }
 
 class Conta {
@@ -35,6 +49,12 @@ class Conta {
 
     fun deposita(valor: Double) {
         saldo += valor
+    }
+
+    fun saca(valor: Double) {
+        if (saldo >= valor) {
+            saldo -= valor
+        }
     }
 }
 
