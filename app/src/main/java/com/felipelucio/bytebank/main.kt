@@ -40,6 +40,16 @@ fun main() {
 
     println("saldo Felipe ${contaFelipe.saldo}")
     println("saldo Ray ${contaRay.saldo}")
+
+    println("Transfere da conta do Felipe para a Ray")
+
+    println("saldo Felipe ${contaFelipe.saldo}")
+    println("saldo Ray ${contaRay.saldo}")
+
+    contaFelipe.transfere(20.0, contaRay)
+
+    println("saldo Felipe ${contaFelipe.saldo}")
+    println("saldo Ray ${contaRay.saldo}")
 }
 
 class Conta {
@@ -55,6 +65,14 @@ class Conta {
         if (saldo >= valor) {
             saldo -= valor
         }
+    }
+
+    fun transfere(valor: Double, destino: Conta): Boolean {
+        if (saldo >= valor) {
+            saldo -= valor
+            destino.deposita(valor)
+        }
+        return false
     }
 }
 
